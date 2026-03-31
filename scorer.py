@@ -34,7 +34,7 @@ def minmax(s: pd.Series) -> pd.Series:
     mn = s.min()
     mx = s.max()
     if pd.isna(mx) or pd.isna(mn) or mx == mn:
-        return pd.Series(0.0, index=s.index)
+        return pd.Series(0.5, index=s.index)
     return (s - mn) / (mx - mn)
 
 def fb_score(g: pd.DataFrame, mu: float) -> float:

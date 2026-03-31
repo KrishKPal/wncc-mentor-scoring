@@ -161,6 +161,12 @@ This value has no  upper bound, so I scaled it to `[0,1]` using min-max normaliz
 ```
 E = (E_per_mentee - E_min) / (E_max - E_min)
 ```
+### 4.3 Edge case
+
+If all mentors have identical engagement per mentee, min-max normalization
+would produce 0/0. In that case I returned 0.5 for all mentors, because
+equal engagement means no one is better or worse, and not that everyone has
+zero engagement.
 
 ## 5. Mentee Feedback Score (F)
 
@@ -315,6 +321,8 @@ This naturally handles mentors working across multiple projects:
 - `F` uses ratings from all supervised students
 
 So mentors are not unfairly rewarded or penalized for just being involved in more than one project.
+
+
 
 ### Detecting Unfair Feedback
 
